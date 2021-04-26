@@ -1,26 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Hello from './components/Hello';
+import List from './pages/List';
+import * as actions from './actions/';
+import { IStoreState } from './types/index';
+import { connect } from 'react-redux';
+interface IProps {
+  name: string;
+  enthusiasmLevel?: number;
+  onIncrement?: () => void;
+  onDecrement?: () => void;
+}
+function App(props: IProps,) {
+  const {onIncrement,onDecrement,enthusiasmLevel} = props
 
-function App() {
+  const clickHandler = (data:string)=>{
+    console.log(data);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      hello React Typescript
+      <Hello title="yanyanshan" age={ 20 } parentClick={clickHandler}/>
+      <List />
+      <div>enthusiasmLevel:{enthusiasmLevel}</div>
+      <button onClick={onDecrement}>-</button>
+      <button onClick={onIncrement}>+</button>
     </div>
   );
 }
 
-export default App;
+function mapStateToProps({ enthusiasmLevel, languageName }: IStoreState) {
+  return {
+    enthusiasmLevel,
+    name: languageName,
+  }
+}
+
+function mapDispatchToProps(dispatch:any) {
+  return {
+    onIncrement: () => dispatch(actions.incrementEnthusiasm()),
+    onDecrement: () => dispatch(actions.decrementEnthusiasm()),
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);

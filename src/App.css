@@ -1,3 +1,8 @@
+@import '~antd/dist/antd.css';
+/**
+@ 是指：src
+~ 是指：根目录
+*/
 .App {
   text-align: center;
 }
