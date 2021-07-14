@@ -4,15 +4,16 @@ import './index.css';
 import AppRouter from './router/AppRouter';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux';
-import store from './store/index';
-
+import store, { sagaMiddleware }  from './store/index';
+import rootSaga from './store/saga';
+sagaMiddleware.run(rootSaga);
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store as any}>  
       <AppRouter />
-    </Provider>
+    </Provider>,
    
-  </React.StrictMode>,
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 
@@ -20,3 +21,4 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+

@@ -1,10 +1,17 @@
-import { createStore } from 'redux';
-import { enthusiasm } from '../reducers/index';
-import { IStoreState } from '../types/index';
-import { composeWithDevTools } from 'redux-devtools-extension'
+import { createStore, applyMiddleware, compose } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+// import logger from 'redux-logger';
+import reducer from './reducers';
 
-const store = createStore<IStoreState>(enthusiasm, {
-  enthusiasmLevel: 1,
-  languageName: 'TypeScript',
-},composeWithDevTools());
-export default store
+export const sagaMiddleware = createSagaMiddleware();
+const middlewares = [sagaMiddleware];
+const composeEnhancer =  (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+function configureStore() {
+  const store = createStore(
+    reducer,
+    composeEnhancer(applyMiddleware(...middlewares))
+  );
+
+  return store;
+}
+export default configureStore();
