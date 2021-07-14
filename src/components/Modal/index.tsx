@@ -111,7 +111,6 @@ function AccountModal(props:IProps) {
                             value={date}
                         />
                     </Form.Item>
-
                 </Form>
             </Modal>
         </div>
