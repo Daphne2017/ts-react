@@ -48,8 +48,8 @@ const ModalForm: React.FC<ModalFormProps> = ({setFormInstance, onUploadFailed}) 
              message="注意："
              description={
                <ul style={{marginLeft: '3em'}}>
-                 <li>只能发布语言更新的标签</li>
-                 <li>若发布到多个平台，那么平台之间需要用 / 分割，如：BIGO_ADS/BIGO_GD（平台名称需要全部大写字母，下划线连接）</li>
+                 <li>这里是测试啦啦啦</li>
+                 <li>若这里是测试啦啦啦啦啦</li>
                </ul>
              }/>
     </Form.Item>
