@@ -26,6 +26,11 @@ function Root(props: RouteComponentProps & { children: ReactElement }) {
 				name: 'form表单',
 				id: 3
 		  },
+			{
+				path: '/hoc/propsProxy',
+				name: '高阶组件属性代理使用',
+				id: 4
+		  },
 		])
 	}, []);
 	return (<div className="root">
