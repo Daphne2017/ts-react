@@ -15,22 +15,27 @@ function Root(props: RouteComponentProps & { children: ReactElement }) {
 				path: '/number',
 				name: 'number自增自减',
 				id: 1
-		  },
+			},
 			{
 				path: '/account',
 				name: 'account日常账目表',
 				id: 2
-		  },
+			},
 			{
 				path: '/form',
 				name: 'form表单',
 				id: 3
-		  },
+			},
 			{
 				path: '/hoc/propsProxy',
 				name: '高阶组件属性代理使用',
 				id: 4
-		  },
+			},
+			{
+				path: '/hoc/input',
+				name: '高阶组件抽离state演示',
+				id: 5
+			},			
 		])
 	}, []);
 	return (<div className="root">
